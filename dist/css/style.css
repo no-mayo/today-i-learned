@@ -1,4 +1,42 @@
+h1, h2, h3, h4, h5, h6, p, a, a:visited, li, input, select, textarea {
+  background: transparent;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin: 0; }
+
+h1, h2, h3, p, input, select, textarea {
+  margin-bottom: 1.5rem; }
+
 body {
-  padding: 2rem 0; }
+  align-items: center;
+  background: orchid;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh; }
+
+.app {
+  width: 100%; }
+
+img {
+  max-width: 100%; }
+
+input {
+  border: 2px solid white;
+  padding: 0.5rem; }
+
+input:active, input:focus {
+  border-color: skyblue;
+  outline: none; }
+
+.new-learn-form {
+  text-align: center; }
+  .new-learn-form input[type='text'] {
+    max-width: 28rem;
+    width: 80%; }
+  .new-learn-form input[type='submit']:active, .new-learn-form input[type='submit']:hover {
+    background: skyblue;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map*/
