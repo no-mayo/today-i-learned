@@ -11,6 +11,19 @@ Check it out: https://louiseswift.github.io/today-i-learned/
 * Webpack
 * Firebase (soon)
 
+## To start working on this project
+
+```
+git clone [repo]
+cd today-i-learned
+npm install
+npm start // to run dev server
+```
+
+Visit `http://localhost:5000/dist/` to view the project.
+
+In a separate terminal tab, run `webpack --progress --watch` for project files to be recompiled on change. (If this doesn't work, try `node_modules/webpack/bin/webpack.js --progress --watch`.)
+
 ## To deploy to production
 
 The /dist folder of this app contains everything needed to run the single-page application. It's hosted on GitHub Pages.
