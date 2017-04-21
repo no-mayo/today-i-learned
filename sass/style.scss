@@ -39,3 +39,8 @@ input:active, input:focus {
     cursor: pointer;
   }
 }
+
+ul.learns {
+  height: 300px;
+  overflow-y: scroll;
+}

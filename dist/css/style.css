@@ -39,4 +39,8 @@ input:active, input:focus {
     background: skyblue;
     cursor: pointer; }
 
+ul.learns {
+  height: 300px;
+  overflow-y: scroll; }
+
 /*# sourceMappingURL=style.css.map*/
