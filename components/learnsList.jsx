@@ -14,7 +14,7 @@ class LearnsList extends React.Component {
         learn: learns[key]
       });
     })
-    return learnsArray.slice(learnsArray.length - 10, learnsArray.length);
+    return learnsArray; //learnsArray.slice(learnsArray.length - 10, learnsArray.length);
   }
 
   render() {
