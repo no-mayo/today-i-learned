@@ -41,24 +41,23 @@ class NewLearnForm extends React.Component {
   }
   
   saveLearn(newLearn) {
-    // create or update the 'learns' localStorage object with the new learn,
-    // and save it back to localStorage
-    let learns = JSON.parse(window.localStorage.getItem('learns')) || {};
-    learns[newLearn.createdAt] = newLearn.learn;
-    window.localStorage.setItem('learns', JSON.stringify(learns));
-    // update this component's state with the latest learn in place
-    this.setState({learns: learns});
+    // TODO: dispatch the new learn to the store ... ?
+    // 
+    // // create or update the 'learns' localStorage object with the new learn,
+    // // and save it back to localStorage
+    // let learns = JSON.parse(window.localStorage.getItem('learns')) || {};
+    // learns[newLearn.createdAt] = newLearn.learn;
+    // window.localStorage.setItem('learns', JSON.stringify(learns));
+    // // update this component's state with the latest learn in place
+    // this.setState({learns: learns});
   }
 
   render() {
     return (
-      <div>
-        <form className="new-learn-form" onSubmit={this.submitNewLearn}>
-          <input type="text" placeholder={this.randomLearn()} autoFocus required value={this.state.newLearn} onChange={this.handleChange}/>
-          <input type="submit" value="Save"/>
-        </form>
-        <LearnsList learns={this.state.learns}/>
-      </div>
+      <form className="new-learn-form" onSubmit={this.submitNewLearn}>
+        <input type="text" placeholder={this.randomLearn()} autoFocus required value={this.state.newLearn} onChange={this.handleChange}/>
+        <input type="submit" value="Save"/>
+      </form>
     );
   }
 }

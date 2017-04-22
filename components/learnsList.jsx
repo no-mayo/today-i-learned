@@ -7,13 +7,17 @@ class LearnsList extends React.Component {
   }
 
   makeLearnsArray(learns) {
+    console.log('- LearnsList - makeLearnsArray()');
+    console.log('learns:', learns);
     const learnsArray = [];
-    Object.keys(learns).forEach(function(key) {
-      learnsArray.push({
-        key: key,
-        learn: learns[key]
-      });
-    })
+    if (learns) {
+      Object.keys(learns).forEach(function(key) {
+        learnsArray.push({
+          key: key,
+          learn: learns[key]
+        });
+      })
+    }
     return learnsArray; //learnsArray.slice(learnsArray.length - 10, learnsArray.length);
   }
 
