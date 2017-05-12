@@ -65,13 +65,10 @@ class NewLearnForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form className="new-learn-form" onSubmit={this.submitNewLearn}>
-          <input type="text" placeholder={this.randomLearn()} autoFocus required value={this.state.newLearn} onChange={this.handleChange}/>
-          <input type="submit" value="Save"/>
-        </form>
-        <LearnsList learns={this.state.learns}/>
-      </div>
+      <form className="new-learn-form" onSubmit={this.submitNewLearn}>
+        <input type="text" placeholder={this.randomLearn()} autoFocus required value={this.state.newLearn} onChange={this.handleChange}/>
+        <input type="submit" value="Save"/>
+      </form>
     );
   }
 }
