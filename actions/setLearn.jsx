@@ -9,13 +9,13 @@ export default function setLearn(learn) {
       createdAt: learn.createdAt,
       learn: learn.learn
     }).then((learn) => {
-      dispatch(setLearnFulfilledAction(learn))
+      dispatch(setLearnFulfilledAction(learn));
     }, (error) => {
       console.log(error);
       dispatch(setLearnRejectedAction());
 
     });
-  }
+  };
 }
 
 function setLearnRequestedAction() {
@@ -29,7 +29,7 @@ function setLearnRejectedAction() {
   console.log('- setLearnRejectedAction()');
   return {
     type: ActionTypes.SetLearnRejected
-  }
+  };
 }
 
 function setLearnFulfilledAction(learn) {

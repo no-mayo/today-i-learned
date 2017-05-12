@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import NewLearnForm from '../components/newLearnForm';
 import { getLearn } from '../actions/getLearn';
+import { setLearn } from '../actions/setLearn';
 
 // I have no idea what's going on here. Some Redux stuff?
 
