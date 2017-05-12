@@ -1,15 +1,20 @@
 import React from 'react';
 import LearnsList from '../components/learnsList';
+import setLearn from '../actions/setLearn';
+
+// The NewLearnForm allows users to type and submit their Learn for the day.
+// The 'newLearn' in the state represents anything the user has typed so far
+// in the input field - we capture it every time they press a key.
 
 class NewLearnForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      learns: JSON.parse(window.localStorage.getItem('learns')) || {},
+      learns: JSON.parse(window.localStorage.getItem('learns')) || [],
       newLearn: ''
     };
 
-    // this binding is necessary to make `this` work in the callback
+    // this binding is necessary to make `this` work in the callbacks
     this.handleChange = this.handleChange.bind(this);
     this.submitNewLearn = this.submitNewLearn.bind(this);
   }
@@ -41,13 +46,21 @@ class NewLearnForm extends React.Component {
   }
   
   saveLearn(newLearn) {
+    console.log('- NewLearnForm.saveLearn()');
+    console.log('newLearn:', newLearn);
     // create or update the 'learns' localStorage object with the new learn,
     // and save it back to localStorage
-    let learns = JSON.parse(window.localStorage.getItem('learns')) || {};
-    learns[newLearn.createdAt] = newLearn.learn;
-    window.localStorage.setItem('learns', JSON.stringify(learns));
+
+    // TODO: surely this code is what should go into one of the Redux functions?
+    // check that random Codepen to see ...
+    // let learns = JSON.parse(window.localStorage.getItem('learns')) || [];
+    // console.log('learns from storage:', learns);
+    // learns.push(newLearn);
+    // window.localStorage.setItem('learns', JSON.stringify(learns));
     // update this component's state with the latest learn in place
-    this.setState({learns: learns});
+    // this.setState({learns: learns});
+    // dispatch({type: SET_ACTIVE_ROOM, payload: { room: activeRoom, id: room_id}});
+    setLearn(newLearn);
   }
 
   render() {

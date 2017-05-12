@@ -1,25 +1,16 @@
 import React from 'react';
 import Learn from '../components/learn';
 
+// The LearnsList component displays all of the user's Learns in a nice list.
+
 class LearnsList extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  makeLearnsArray(learns) {
-    const learnsArray = [];
-    Object.keys(learns).forEach(function(key) {
-      learnsArray.push({
-        key: key,
-        learn: learns[key]
-      });
-    })
-    return learnsArray; //learnsArray.slice(learnsArray.length - 10, learnsArray.length);
-  }
-
   render() {
-    const learns = this.makeLearnsArray(this.props.learns).map((learn) =>
-      <Learn key={learn.key} learn={learn.learn} />
+    let learns = this.props.learns.map((learn) =>
+      <Learn key={learn.createdAt} learn={learn.learn} />
     );
     return (
       <ul className='learns'>

@@ -1,7 +1,8 @@
 import ActionTypes from '../constants/actionTypes';
-// import database from './database';
+import database from '../constants/database';
 
 export function getLearn() {
+  console.log('- getLearn()');
   return dispatch => {
     // TODO: use Firebase and these different functions
     // dispatch(getLearnRequestedAction());
@@ -18,18 +19,21 @@ export function getLearn() {
 }
 
 function getLearnRequestedAction() {
+  console.log('- getLearnRequestedAction()');
   return {
     type: ActionTypes.GetLearnRequested
   };
 }
 
 function getLearnRejectedAction() {
+  console.log('- getLearnRejectedAction()');
   return {
     type: ActionTypes.GetLearnRejected
   }
 }
 
 function getLearnFulfilledAction(learn) {
+  console.log('- getLearnFulfilledAction(), learn:', learn);
   return {
     type: ActionTypes.GetLearnFulfilled,
     learn
