@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import style from './sass/style.scss';
-
-const TodayILearned = require('./components/todayILearned');
+import NewLearnForm from './components/newLearnForm';
+import LearnsList from './components/learnsList';
 
 // initialise React app
 ReactDOM.render(
-  <TodayILearned />,
+  <div>
+    <NewLearnForm />
+    <LearnsList/>
+  </div>,
   document.getElementById('app')
 );

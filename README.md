@@ -10,6 +10,7 @@ Check it out: https://louiseswift.github.io/today-i-learned/
 * Babel
 * Webpack
 * Firebase (soon)
+* Redux (possibly one day)
 
 ## To start working on this project
 

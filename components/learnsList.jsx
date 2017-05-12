@@ -9,14 +9,19 @@ class LearnsList extends React.Component {
   }
 
   render() {
-    let learns = this.props.learns.map((learn) =>
-      <Learn key={learn.createdAt} learn={learn.learn} />
-    );
-    return (
-      <ul className='learns'>
-        {learns}
-      </ul>
-    );
+    console.log('this.props:', this.props);
+    if (this.props.learns) {
+      let learns = this.props.learns.map((learn) =>
+        <Learn key={learn.createdAt} learn={learn.learn} />
+      );
+      return (
+        <ul className='learns'>
+          {learns}
+        </ul>
+      );
+    } else {
+      return <p>No learns to list.</p>;
+    }
   }
 }
 
