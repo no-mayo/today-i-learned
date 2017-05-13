@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Today I Learned</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <!--[if lte IE 9]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+      
+      <div id="app" class="app">
+        <new-learn-form :new-learn-text="newLearnText" :status="status"></new-learn-form>
+        <ul class="learns-list">
+          <li v-for="learn in learnsList" :key="learn.id">
+            {{ learn.text }}
+          </li>
+        </ul>
+      </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/bundle/all.js"></script>
+  </body>
+</html>

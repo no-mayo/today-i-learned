@@ -6,11 +6,10 @@ Check it out: https://louiseswift.github.io/today-i-learned/
 
 ## This app uses
 
-* React
+* Vue.js
 * Babel
 * Webpack
-* Firebase (soon)
-* Redux (possibly one day)
+* Firebase
 
 ## To start working on this project
 
