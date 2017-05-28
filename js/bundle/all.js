@@ -106,9 +106,10 @@ var newLearnForm = Vue.component('new-learn-form', {
   },
   methods: {
     randomLearn: function randomLearn() {
-      var learns = ['Pythagoras\' theorem', 'how to find a manta ray', 'the Portuguese word for \'jump\''];
-      var random = Math.floor(Math.random() * learns.length);
-      return learns[random];
+      var learns = ['Pythagoras\' theorem', 'how to find a manta ray', 'the Portuguese word for \'jump\'', 'an algorithm for sorting bubbles'];
+      var randomIndex = Math.floor(Math.random() * learns.length);
+
+      return learns[randomIndex];
     },
     saveNewLearn: function saveNewLearn() {
       var component = this;

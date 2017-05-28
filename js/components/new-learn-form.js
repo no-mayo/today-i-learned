@@ -24,9 +24,10 @@ const newLearnForm = Vue.component('new-learn-form', {
   },
   methods: {
     randomLearn: function() {
-      let learns = ['Pythagoras\' theorem', 'how to find a manta ray', 'the Portuguese word for \'jump\''];
-      let random = Math.floor(Math.random() * learns.length);
-      return learns[random];
+      let learns = ['Pythagoras\' theorem', 'how to find a manta ray', 'the Portuguese word for \'jump\'', 'an algorithm for sorting bubbles'];
+      let randomIndex = Math.floor(Math.random() * learns.length);
+
+      return learns[randomIndex];
     },
     saveNewLearn: function() {
       let component = this;
