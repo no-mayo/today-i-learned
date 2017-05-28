@@ -18,17 +18,27 @@
       <![endif]-->
       <h1 class="app-name">Today I Learned</h1>
       <div class="loading-cover"><div class="loader"></div><p class="loading-error">&nbsp;</p></div>
+      
       <div id="app" class="app">
-        <new-learn-form :new-learn-text="newLearnText" :status="status"></new-learn-form>
-        <div class="learns">
-          <h2>My Learns</h2>
-          <ul class="learns-list">
-            <li v-for="learn in learnsList" :key="learn['.key']">
-              {{ learn.learnText }}
-              [ <a href="#" v-on:click="removeUser(learn)">x</a> ]
-            </li>
-          </ul>
-        </div><!-- .learns -->
+        <div v-if="user.uid">
+          <a class="logout" href="#" v-on:click="signOut">Logout</a>
+
+          <new-learn-form :new-learn-text="newLearnText" :status="status" :user-uid="user.uid"></new-learn-form>
+
+          <div class="learns">
+            <h2>My Learns</h2>
+            <ul class="learns-list">
+              <li v-for="learn in learnsList" :key="learn['.key']">
+                {{ learn.learnText }}
+                [ <a href="#" v-on:click="removeLearn(learn, $event)">x</a> ]
+              </li>
+            </ul>
+          </div><!-- .learns -->
+        </div>
+
+        <div v-if="!user.uid">
+          <a href="#" v-on:click="signIn">Login with Twitter</a>
+        </div>
       </div><!-- .app -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>

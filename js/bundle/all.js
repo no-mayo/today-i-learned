@@ -77,32 +77,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _firebaseDatabase = __webpack_require__(18);
-
-var _firebaseDatabase2 = _interopRequireDefault(_firebaseDatabase);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var userRef = _firebaseDatabase2.default.ref('users/testUser');
+/* global Vue, firebase */
+var db = firebase.database();
 
 // our <new-learn-form> component
 
-/* global Vue */
 var newLearnForm = Vue.component('new-learn-form', {
   data: function data() {
     return {
       cleanNewLearnText: this.newLearnText.trim(),
       updatedStatus: this.status
     };
-  },
-  firebase: {
-    user: {
-      source: userRef,
-      cancelCallback: function cancelCallback(errMsg) {
-        console.log('cancelCallback(), errMsg:', errMsg);
-      }
-    }
   },
   methods: {
     randomLearn: function randomLearn() {
@@ -115,7 +100,7 @@ var newLearnForm = Vue.component('new-learn-form', {
       var component = this;
       component.updatedStatus = 'Saving...';
 
-      userRef.push({
+      db.ref('users/' + component.userUid + '/learns').push({
         createdAt: Math.floor(Date.now() / 1000),
         learnText: this.cleanNewLearnText,
         updatedAt: Math.floor(Date.now() / 1000)
@@ -130,7 +115,7 @@ var newLearnForm = Vue.component('new-learn-form', {
       });
     }
   },
-  props: ['newLearnText', 'status'],
+  props: ['newLearnText', 'status', 'userUid'],
   template: '\n    <form class="new-learn-form" @submit.prevent="saveNewLearn">\n      <input type="text" :placeholder="randomLearn()" autoFocus required v-model="cleanNewLearnText">\n      <p>{{ updatedStatus }}</p>\n      <input type="submit" value="Save">\n    </form>\n  '
 });
 
@@ -145,7 +130,7 @@ exports.default = newLearnForm;
 
 /***/ }),
 
-/***/ 18:
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -154,18 +139,14 @@ exports.default = newLearnForm;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-/* global firebase */
-
-firebase.initializeApp({
+exports.default = {
   apiKey: "AIzaSyCAZmqm5ADWiJaS3RVrnyc9a9_6eJREwwg",
   authDomain: "today-i-learned-5e095.firebaseapp.com",
   databaseURL: "https://today-i-learned-5e095.firebaseio.com",
   projectId: "today-i-learned-5e095",
   storageBucket: "today-i-learned-5e095.appspot.com",
   messagingSenderId: "691472609212"
-});
-
-exports.default = firebase.database();
+};
 
 /***/ }),
 
@@ -175,48 +156,90 @@ exports.default = firebase.database();
 "use strict";
 
 
-var _firebaseDatabase = __webpack_require__(18);
+var _firebaseConfig = __webpack_require__(19);
 
-var _firebaseDatabase2 = _interopRequireDefault(_firebaseDatabase);
+var _firebaseConfig2 = _interopRequireDefault(_firebaseConfig);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var userRef = _firebaseDatabase2.default.ref('users/testUser');
+/* global Vue, firebase */
 
 // instruct webpack to do Sass compilation
-/* global Vue */
-
-// import our database and set a base reference
 __webpack_require__(1);
+
+// initialise Firebase
+
+firebase.initializeApp(_firebaseConfig2.default);
+
+// configure Firebase to use our chosen auth provider
+var provider = new firebase.auth.TwitterAuthProvider();
+
+// set a base database reference
+var db = firebase.database();
 
 // bring in our custom Vue component
 __webpack_require__(0);
 
 // initialise our Vue app with its initial state
 var App = new Vue({
+  beforeCreate: function beforeCreate() {
+    // the app should watch the user's auth state
+    firebase.auth().onAuthStateChanged(function (user) {
+      console.log('user status changed:', user);
+
+      if (user) {
+        // let our app know that we've got an authenticated user
+        this.user = user;
+        // set 2-way binding of the user's 'learns' list
+        this.$bindAsArray('learnsList', db.ref('users/' + user.uid + '/learns'));
+      } else {
+        // no authed user - clear any previous user value
+        this.user = {};
+      }
+
+      // hide the loading cover
+      document.querySelector('.loading-cover').classList.add('hide');
+    }.bind(this));
+  },
+
   el: '#app',
+
   data: {
     learnsList: [],
     newLearnText: '',
-    status: 'Type your new learning for today in the field above, and click "Save".'
+    status: 'Type your new learning for today in the field above, and click "Save".',
+    user: {}
   },
-  firebase: {
-    learnsList: {
-      source: userRef,
-      cancelCallback: function cancelCallback(error) {
-        // handle any errors in listening to the userRef
-        console.log('cancelCallback(), error.message:', error.message);
-        document.querySelector('.loading-error').innerHTML = 'An error occurred. Please refresh the page to try again.';
-      },
-      readyCallback: function readyCallback(snapshot) {
-        // respond to successful fetch from userRef
-        document.querySelector('.loading-cover').classList.add('hide');
-      }
-    }
-  },
+
   methods: {
-    removeUser: function removeUser(learn) {
-      userRef.child(learn['.key']).remove();
+    removeLearn: function removeLearn(learn, event) {
+      this.$firebaseRefs.learnsList.child(learn['.key']).remove();
+      event.preventDefault();
+    },
+
+    signIn: function signIn(event) {
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // on successful auth, we get the signed-in user's info
+        firebase.database().ref('users/' + result.user.uid).update({
+          displayName: result.user.displayName,
+          uid: result.user.uid
+        });
+      }).catch(function (error) {
+        // handle authentication errors
+        var errorMessage = error.message;
+        console.log('errorMessage:', errorMessage);
+      });
+      event.preventDefault();
+    },
+
+    signOut: function signOut(event) {
+      var component = this;
+      firebase.auth().signOut().then(function () {
+        component.user = {};
+      }).catch(function (error) {
+        console.log('signout error:', error);
+      });
+      event.preventDefault();
     }
   }
 });

@@ -504,6 +504,11 @@ body {
 .app {
   width: 100%; }
 
+.logout {
+  right: 1rem;
+  position: absolute;
+  top: 1rem; }
+
 img {
   max-width: 100%; }
 

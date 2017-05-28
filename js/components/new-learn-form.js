@@ -1,6 +1,5 @@
-/* global Vue */
-import database from '../firebase-database.js';
-const userRef = database.ref('users/testUser');
+/* global Vue, firebase */
+const db = firebase.database();
 
 // our <new-learn-form> component
 
@@ -10,17 +9,6 @@ const newLearnForm = Vue.component('new-learn-form', {
       cleanNewLearnText: this.newLearnText.trim(),
       updatedStatus: this.status
     };
-  },
-  firebase: {
-    user: {
-      source: userRef,
-      cancelCallback: function(errMsg) {
-        console.log('cancelCallback(), errMsg:', errMsg);
-      },
-      // readyCallback: function(snapshot) {
-      //   console.log('readyCallback(), snapshot.val():', snapshot.val());
-      // }
-    }
   },
   methods: {
     randomLearn: function() {
@@ -32,8 +20,8 @@ const newLearnForm = Vue.component('new-learn-form', {
     saveNewLearn: function() {
       let component = this;
       component.updatedStatus = 'Saving...';
-
-      userRef.push({
+      
+      db.ref(`users/${component.userUid}/learns`).push({
         createdAt: Math.floor(Date.now()/1000),
         learnText: this.cleanNewLearnText,
         updatedAt: Math.floor(Date.now()/1000)
@@ -48,7 +36,7 @@ const newLearnForm = Vue.component('new-learn-form', {
       });
     }
   },
-  props: ['newLearnText', 'status'],
+  props: ['newLearnText', 'status', 'userUid'],
   template: `
     <form class="new-learn-form" @submit.prevent="saveNewLearn">
       <input type="text" :placeholder="randomLearn()" autoFocus required v-model="cleanNewLearnText">
