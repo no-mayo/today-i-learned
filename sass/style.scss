@@ -1,14 +1,35 @@
+@import 'loaders';
 @import 'normalize';
 @import 'typography';
 
 body {
-  align-items: center;
   background: orchid;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  margin: 0;
+  padding: 10rem 2rem 0;
   min-height: 100vh;
+  text-align: center;
+}
+
+.loading-cover {
+  align-items: center;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  z-index: 1;
+  &.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  .loading-error {
+    color: red;
+    margin: 0;
+  }
 }
 
 .app {

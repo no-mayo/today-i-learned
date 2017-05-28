@@ -31,7 +31,7 @@ const newLearnForm = Vue.component('new-learn-form', {
     saveNewLearn: function() {
       let component = this;
       component.updatedStatus = 'Saving...';
-      
+
       userRef.push({
         createdAt: Math.floor(Date.now()/1000),
         learnText: this.cleanNewLearnText,
