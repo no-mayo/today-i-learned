@@ -30,7 +30,6 @@ input:active, input:focus {
 }
 
 .new-learn-form {
-  text-align: center;
   input[type='text'] {
     max-width: 28rem;
     width: 80%;
@@ -41,6 +40,6 @@ input:active, input:focus {
   }
 }
 
-ul.learns {
-  height: 300px;
+.learns {
+  text-align: left;
 }

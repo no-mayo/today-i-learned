@@ -16,17 +16,23 @@
       <!--[if lte IE 9]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
       <![endif]-->
-      
+      <h1 class="app-name">Today I Learned</h1>
+      <div class="loading-cover"><div class="loader"></div><p class="loading-error">&nbsp;</p></div>
       <div id="app" class="app">
         <new-learn-form :new-learn-text="newLearnText" :status="status"></new-learn-form>
-        <ul class="learns-list">
-          <li v-for="learn in learnsList" :key="learn.id">
-            {{ learn.text }}
-          </li>
-        </ul>
-      </div>
-
-    <script src="https://unpkg.com/vue"></script>
+        <div class="learns">
+          <h2>My Learns</h2>
+          <ul class="learns-list">
+            <li v-for="learn in learnsList" :key="learn['.key']">
+              {{ learn.learnText }}
+              [ <a href="#" v-on:click="removeUser(learn)">x</a> ]
+            </li>
+          </ul>
+        </div><!-- .learns -->
+      </div><!-- .app -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
     <script src="js/bundle/all.js"></script>
   </body>
 </html>

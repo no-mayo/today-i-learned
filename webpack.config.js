@@ -1,9 +1,4 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const extractSass = new ExtractTextPlugin({
-//   allChunks: true,
-//   disable: false,
-//   filename: './css/style.css'
-// });
 
 module.exports = {
   entry: {
