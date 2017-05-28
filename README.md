@@ -26,11 +26,10 @@ In a separate terminal tab, run `webpack --progress --watch` for project files t
 
 ## To deploy to production
 
-The /dist folder of this app contains everything needed to run the single-page application. It's hosted on GitHub Pages.
+The production app is currently hosted on gh-pages.
 
-To send updates to production, use a subtree push to deploy the /dist folder to the gh-pages branch:
+To deploy the latest version, push your latest commits from the repo's master branch to its gh-pages branch:
 
 ```
-git add dist && git commit -m "[commit message here]"
-git subtree push --prefix dist origin gh-pages
+git push origin master:gh-pages
 ```
