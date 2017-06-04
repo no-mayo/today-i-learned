@@ -2,7 +2,7 @@
 
 Record something you've learned every day and see your awesome progress.
 
-Check it out: https://louiseswift.github.io/today-i-learned/
+Check it out: https://no-mayo.github.io/today-i-learned/
 
 ## This app uses
 
