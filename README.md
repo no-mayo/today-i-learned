@@ -20,7 +20,7 @@ npm install
 npm start // to run dev server
 ```
 
-Visit `http://localhost:5000/dist/` to view the project.
+Visit `http://localhost:5000/` to view the project.
 
 In a separate terminal tab, run `webpack --progress --watch` for project files to be recompiled on change. (If this doesn't work, try `node_modules/webpack/bin/webpack.js --progress --watch`.)
 
