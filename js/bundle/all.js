@@ -63,12 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -122,15 +121,7 @@ var newLearnForm = Vue.component('new-learn-form', {
 exports.default = newLearnForm;
 
 /***/ }),
-
-/***/ 1:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 19:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,14 +140,19 @@ exports.default = {
 };
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
-/***/ 2:
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _firebaseConfig = __webpack_require__(19);
+var _firebaseConfig = __webpack_require__(1);
 
 var _firebaseConfig2 = _interopRequireDefault(_firebaseConfig);
 
@@ -165,7 +161,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* global Vue, firebase */
 
 // instruct webpack to do Sass compilation
-__webpack_require__(1);
+__webpack_require__(2);
 
 // initialise Firebase
 
@@ -245,6 +241,5 @@ var App = new Vue({
 });
 
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=all.js.map

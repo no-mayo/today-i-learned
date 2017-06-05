@@ -511,6 +511,8 @@ body {
 
 img {
   max-width: 100%; }
+  img.icon {
+    max-height: 1rem; }
 
 input {
   border: 2px solid white;
