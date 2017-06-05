@@ -31,10 +31,10 @@
               <li v-for="learn in learnsList" :key="learn['.key']">
                 {{ learn.learnText }}
                 <a href="#">
-                  <img class="icon" src="/images/edit.svg">
+                  <img class="icon" src="images/edit.svg">
                 </a>
                 <a href="#" v-on:click="removeLearn(learn, $event)">
-                  <img class="icon" src="/images/delete.svg">
+                  <img class="icon" src="images/delete.svg">
                 </a>
               </li>
             </ul>
