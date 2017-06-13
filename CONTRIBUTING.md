@@ -9,7 +9,7 @@ We hope in future to have more open source projects that we're able to accept mo
 **If you are not a participant in our mentoring programme:**
 
 * Thank you for your interest!
-* Feel free to follow us on Twitter [@no_mayo_digital](https://twitter.com/no_mayo_digital) and perhaps send us a tweet to say hi - we 
+* Feel free to follow us on Twitter [@no_mayo_digital](https://twitter.com/no_mayo_digital) and perhaps send us a tweet to say hi - we're always keen to connect with other developers
 
 **If you are a participant in our mentoring programme, the following guidelines will help you make your contribution to the project.**
 
