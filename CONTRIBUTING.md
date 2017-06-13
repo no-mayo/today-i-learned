@@ -21,7 +21,7 @@ We hope in future to have more open source projects that we're able to accept mo
 6. Once you've chosen an issue to tackle, you can post in that issue's thread that you've claimed the issue and are beginning work on it
 7. In your local project, create a new branch for the issue/feature/topic that you're tackling, being sure to use a descriptive branch name e.g. `git checkout -b fix-spelling-errors`
 8. Make the code changes in your local project to resolve the issue that you're tackling
-9. When ready, `git commit -am [succinct but descriptive explanation]` and `git push` so that your changes are stored in the new branch in your fork of the project (you can repeat this step with several small commits if needed 
+9. When ready, `git commit -am "[succinct but descriptive explanation]"` and `git push` so that your changes are stored in the new branch in your fork of the project (you can repeat this step with several small commits if needed
 10. When you're ready to request that your code be pulled into the main project, first view your fork of the project on GitHub and select your issue branch from the 'Branches' dropdown menu
 11. From this branch, you can click the 'Pull Request' button to be taken to the pull request form - here, it's helpful to include in the comment box a link to the issue that your pull request is addressing, as well as perhaps a brief outline of the code changes that your pull request contains
 12. When ready, submit your pull request for us to review and accept
