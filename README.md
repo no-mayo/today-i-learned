@@ -13,6 +13,8 @@ Check it out: https://no-mayo.github.io/today-i-learned/
 
 ## To start working on this project
 
+Start by reviewing our [contributing guidelines](https://github.com/no-mayo/today-i-learned/blob/master/CONTRIBUTING.md).
+
 ```
 git clone [repo]
 cd today-i-learned
