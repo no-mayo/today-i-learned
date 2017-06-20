@@ -11,9 +11,16 @@ Check it out: https://no-mayo.github.io/today-i-learned/
 * Webpack
 * Firebase
 
+## Dependencies
+
+* Node.js ([installation guide](https://nodejs.org/en/download/))
+* NPM (comes with Node, but you might want to update NPM as per [this guide](https://docs.npmjs.com/getting-started/installing-node))
+
 ## To start working on this project
 
 Start by reviewing our [contributing guidelines](https://github.com/no-mayo/today-i-learned/blob/master/CONTRIBUTING.md).
+
+Check that you have Node.js installed: `node -v` (if not, [install it](https://nodejs.org/en/download/))
 
 ```
 git clone [repo]
