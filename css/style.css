@@ -478,6 +478,7 @@ h1, h2, h3, p, input, select, textarea {
 body {
   background: orchid;
   padding: 10rem 2rem 0;
+  position: relative;
   min-height: 100vh;
   text-align: center; }
 
@@ -532,5 +533,15 @@ input:active, input:focus {
 
 .learns {
   text-align: left; }
+
+.learns-list {
+  max-height: calc(100vh - 23rem);
+  overflow-y: scroll; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%); }
 
 /*# sourceMappingURL=style.css.map*/
