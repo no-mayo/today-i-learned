@@ -36,7 +36,7 @@
                 <a href="#" v-on:click="removeLearn(learn, $event)">
                   <img class="icon" src="images/delete.svg">
                 </a>
-                <a v-bind:href="'https://twitter.com/intent/tweet?text=TIL%3A%20'+ learn.learnText + '%20%23TIL%20/cc%20@no_mayo_digital'">
+                <a v-bind:href="'https://twitter.com/intent/tweet?text=TIL%3A%20'+ learn.learnText + '%20%23TIL%20/cc%20@no_mayo_digital'" target="_blank">
                   <img class="icon" src="images/twitter.svg">
                 </a>
                 <p>created at: {{ new Date(learn.createdAt * 1000).toLocaleString() }}</p>
