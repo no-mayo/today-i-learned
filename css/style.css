@@ -479,7 +479,9 @@ body {
   background: orchid;
   padding: 10rem 2rem 0;
   min-height: 100vh;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  }
 
 .loading-cover {
   align-items: center;
@@ -532,5 +534,12 @@ input:active, input:focus {
 
 .learns {
   text-align: left; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
 
 /*# sourceMappingURL=style.css.map*/
