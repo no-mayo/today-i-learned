@@ -28,7 +28,7 @@
           <div class="learns">
             <h2>My Learns</h2>
             <ul class="learns-list">
-              <li v-for="learn in learnsList" :key="learn['.key']">
+               <li v-for="learn in learnsList.slice().reverse()" :key="learn['.key']">
                 {{ learn.learnText }}
                 <a href="#">
                   <img class="icon" src="images/edit.svg">
