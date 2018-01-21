@@ -466,7 +466,7 @@ template {
 [hidden] {
   display: none; }
 
-h1, h2, h3, h4, h5, h6, p, a, a:visited, li, input, select, textarea {
+h1, h2, h3, h4, h5, h6, p, .foo, a, a:visited, li, input, select, textarea {
   background: transparent;
   color: white;
   font-family: 'Rubik', sans-serif;
